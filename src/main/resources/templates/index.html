@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- hasAuthority ile ui da yetki kontrolü yaparız  -->
+  <!-- ROLE ön takısı sistem tarafından user sessionda roller ROLE ön takısı ile erişilebilir oluyor  -->
+  <div sec:authorize="hasRole('ROLE_manager')">Text visible to manager.</div>
+  <div sec:authorize="hasRole('ROLE_admin')">Text visible to admin.</div>
+  <div sec:authorize="hasAuthority('user-create')">User Create Permission</div>
+  <div sec:authorize="isAuthenticated()">Text visible only to authenticated users.</div>
+  Authenticated username:
+  <span sec:authentication="name"></span>
+
+  <div sec:authorize="isAuthenticated()">
+    <form th:action="@{/logout}" method="post">
+      <input type="submit" value="logout">
+    </form>
+  </div>
+
+</body>
+
+</html>

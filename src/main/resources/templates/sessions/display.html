@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div th:text="${session.username}"></div>
+  <div th:text="${session.email}"></div>
+
+  <a th:href="@{/clearSessionKey}">clearSessionKey</a>
+  <a th:href="@{/clearSession}">clearSession</a>
+
+
+</body>
+
+</html>
